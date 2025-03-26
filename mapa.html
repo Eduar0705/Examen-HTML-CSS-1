@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mapa interactivo de GeoEdu - Explora diferentes regiones geográficas">
+    <meta name="keywords" content="mapa interactivo, geografía, regiones, ecosistemas">
+    <title>Mapa Interactivo - GeoEdu</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./imagenes/tierra.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-icon">🌍</span>
+                    <span class="logo-text">GeoEdu</span>
+                </a>
+            </div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="mapa.html" class="active">Mapa Interactivo</a></li>
+                    <li><a href="juegos.html">Test y Juegos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <iframe
+    src="https://www.google.com/maps/@39.550051,-105.782067,6z?hl=es&entry=ttu&g_ep=EgoyMDI1MDMyNC4wIKXMDSoASAFQAw%3D%3D"
+    width="600"
+    height="450"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy">
+</iframe>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Mapa Interactivo de Ecosistemas</h1>
+                <p>Explora las diferentes regiones geográficas del mundo y aprende sobre sus características únicas. Selecciona una región para obtener más información.</p>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div class="container">
+                <div class="map-container">
+                    <!-- Mapa SVG Interactivo -->
+                    <div class="interactive-map">
+                        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0" y="0" width="800" height="400" fill="#E8F5E9" />
+                            
+                            <!-- Amazonía -->
+                            <a href="#amazonia" class="map-region">
+                                <path d="M50,120 Q80,100 110,120 Q140,140 170,120 Q200,100 230,120 L230,200 L50,200 Z" fill="#2E7D32" stroke="#333" stroke-width="2" />
+                                <text x="140" y="160" text-anchor="middle" fill="#fff" font-weight="bold" font-size="14">Amazonía</text>
+                            </a>
+                            
+                            <!-- Andes -->
+                            <a href="#andes" class="map-region">
+                                <path d="M250,80 L270,150 L290,90 L310,170 L330,100 L350,180 L370,90 L390,150 L410,80 L410,200 L250,200 Z" fill="#795548" stroke="#333" stroke-width="2" />
+                                <text x="330" y="140" text-anchor="middle" fill="#fff" font-weight="bold" font-size="14">Andes</text>
+                            </a>
+                            
+                            <!-- Ártico -->
+                            <a href="#artico" class="map-region">
+                                <path d="M430,50 Q500,20 570,50 Q640,80 710,50 L710,150 L430,150 Z" fill="#B3E5FC" stroke="#333" stroke-width="2" />
+                                <text x="570" y="100" text-anchor="middle" fill="#333" font-weight="bold" font-size="14">Ártico</text>
+                            </a>
+                            
+                            <!-- Sahara -->
+                            <a href="#sahara" class="map-region">
+                                <path d="M50,220 L200,220 L200,320 Q125,350 50,320 Z" fill="#FBC02D" stroke="#333" stroke-width="2" />
+                                <text x="125" y="270" text-anchor="middle" fill="#333" font-weight="bold" font-size="14">Sahara</text>
+                            </a>
+                            
+                            <!-- Gran Barrera de Coral -->
+                            <a href="#arrecifes" class="map-region">
+                                <path d="M550,220 Q600,200 650,220 Q700,240 750,220 L750,320 L550,320 Z" fill="#00BCD4" stroke="#333" stroke-width="2" />
+                                <text x="650" y="270" text-anchor="middle" fill="#333" font-weight="bold" font-size="14">Gran Barrera de Coral</text>
+                            </a>
+                        </svg>
+                    </div>
+                    
+                    <!-- Leyenda del mapa -->
+                    <div class="map-legend">
+                        <div class="legend-item" data-region="amazonia">
+                            <span class="legend-color" style="background-color: #2E7D32;"></span>
+                            <span class="legend-text">Amazonía</span>
+                        </div>
+                        <div class="legend-item" data-region="andes">
+                            <span class="legend-color" style="background-color: #795548;"></span>
+                            <span class="legend-text">Cordillera de los Andes</span>
+                        </div>
+                        <div class="legend-item" data-region="artico">
+                            <span class="legend-color" style="background-color: #B3E5FC;"></span>
+                            <span class="legend-text">Ártico</span>
+                        </div>
+                        <div class="legend-item" data-region="sahara">
+                            <span class="legend-color" style="background-color: #FBC02D;"></span>
+                            <span class="legend-text">Desierto del Sahara</span>
+                        </div>
+                        <div class="legend-item" data-region="arrecifes">
+                            <span class="legend-color" style="background-color: #00BCD4;"></span>
+                            <span class="legend-text">Gran Barrera de Coral</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Información de las regiones (usando tabs con CSS) -->
+                <div class="region-info">
+                    <input type="radio" name="region-tabs" id="tab-default" checked>
+                    <input type="radio" name="region-tabs" id="tab-amazonia">
+                    <input type="radio" name="region-tabs" id="tab-andes">
+                    <input type="radio" name="region-tabs" id="tab-artico">
+                    <input type="radio" name="region-tabs" id="tab-sahara">
+                    <input type="radio" name="region-tabs" id="tab-arrecifes">
+                    
+                    <div class="region-tabs">
+                        <label for="tab-amazonia" class="tab-label" id="amazonia">Amazonía</label>
+                        <label for="tab-andes" class="tab-label" id="andes">Andes</label>
+                        <label for="tab-artico" class="tab-label" id="artico">Ártico</label>
+                        <label for="tab-sahara" class="tab-label" id="sahara">Sahara</label>
+                        <label for="tab-arrecifes" class="tab-label" id="arrecifes">Gran Barrera de Coral</label>
+                    </div>
+                    
+                    <div class="region-content">
+                        <div class="region-default">
+                            <div class="region-placeholder">
+                                <div class="region-icon">🗺️</div>
+                                <h3>Selecciona una región</h3>
+                                <p>Haz clic en cualquier región del mapa para ver información detallada sobre su geografía y ecosistemas.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="region-panel" id="panel-amazonia">
+                            <h3>Amazonía</h3>
+                            <p>El bosque tropical más grande del mundo, hogar de una increíble biodiversidad.</p>
+                            
+                            <h4>Datos interesantes:</h4>
+                            <ul>
+                                <li>Contiene el 10% de todas las especies conocidas en la Tierra</li>
+                                <li>Produce el 20% del oxígeno del planeta</li>
+                                <li>Alberga más de 40,000 especies de plantas</li>
+                            </ul>
+                            
+                            <div class="conservation-status">
+                                <h4>Estado de conservación</h4>
+                                <p>Esta región enfrenta desafíos ambientales significativos. Conoce más sobre las iniciativas de conservación y cómo puedes contribuir.</p>
+                                <a href="#" class="btn btn-sm">Más información</a>
+                            </div>
+                        </div>
+                        
+                        <div class="region-panel" id="panel-andes">
+                            <h3>Cordillera de los Andes</h3>
+                            <p>La cadena montañosa más larga del mundo, con diversos ecosistemas de altura.</p>
+                            
+                            <h4>Datos interesantes:</h4>
+                            <ul>
+                                <li>Se extiende por 7 países de Sudamérica</li>
+                                <li>Contiene más de 50 volcanes activos</li>
+                                <li>Alberga el lago navegable más alto del mundo: el Titicaca</li>
+                            </ul>
+                            
+                            <div class="conservation-status">
+                                <h4>Estado de conservación</h4>
+                                <p>Esta región enfrenta desafíos ambientales significativos. Conoce más sobre las iniciativas de conservación y cómo puedes contribuir.</p>
+                                <a href="#" class="btn btn-sm">Más información</a>
+                            </div>
+                        </div>
+                        
+                        <div class="region-panel" id="panel-artico">
+                            <h3>Ártico</h3>
+                            <p>Región polar caracterizada por su clima frío y ecosistemas únicos adaptados a condiciones extremas.</p>
+                            
+                            <h4>Datos interesantes:</h4>
+                            <ul>
+                                <li>El hielo marino del Ártico está disminuyendo debido al cambio climático</li>
+                                <li>Hogar del oso polar, considerado una especie vulnerable</li>
+                                <li>Experimenta fenómenos como el sol de medianoche y la aurora boreal</li>
+                            </ul>
+                            
+                            <div class="conservation-status">
+                                <h4>Estado de conservación</h4>
+                                <p>Esta región enfrenta desafíos ambientales significativos. Conoce más sobre las iniciativas de conservación y cómo puedes contribuir.</p>
+                                <a href="#" class="btn btn-sm">Más información</a>
+                            </div>
+                        </div>
+                        
+                        <div class="region-panel" id="panel-sahara">
+                            <h3>Desierto del Sahara</h3>
+                            <p>El desierto cálido más grande del mundo, con condiciones extremas y ecosistemas adaptados.</p>
+                            
+                            <h4>Datos interesantes:</h4>
+                            <ul>
+                                <li>Cubre aproximadamente el 31% del continente africano</li>
+                                <li>Las temperaturas pueden variar más de 30°C en un solo día</li>
+                                <li>Contiene acuíferos subterráneos que sostienen oasis</li>
+                            </ul>
+                            
+                            <div class="conservation-status">
+                                <h4>Estado de conservación</h4>
+                                <p>Esta región enfrenta desafíos ambientales significativos. Conoce más sobre las iniciativas de conservación y cómo puedes contribuir.</p>
+                                <a href="#" class="btn btn-sm">Más información</a>
+                            </div>
+                        </div>
+                        
+                        <div class="region-panel" id="panel-arrecifes">
+                            <h3>Gran Barrera de Coral</h3>
+                            <p>El mayor sistema de arrecifes de coral del mundo, con una biodiversidad marina extraordinaria.</p>
+                            
+                            <h4>Datos interesantes:</h4>
+                            <ul>
+                                <li>Visible desde el espacio, es la estructura viva más grande del planeta</li>
+                                <li>Hogar de más de 1,500 especies de peces</li>
+                                <li>Enfrenta amenazas por el blanqueamiento de coral debido al cambio climático</li>
+                            </ul>
+                            
+                            <div class="conservation-status">
+                                <h4>Estado de conservación</h4>
+                                <p>Esta región enfrenta desafíos ambientales significativos. Conoce más sobre las iniciativas de conservación y cómo puedes contribuir.</p>
+                                <a href="#" class="btn btn-sm">Más información</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>GeoEdu</h3>
+                    <p>Educación geográfica y ambiental interactiva para todos.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="mapa.html">Mapa Interactivo</a></li>
+                        <li><a href="juegos.html">Test y Juegos</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contacto</h3>
+                    <p>info@geoedu.example.com</p>
+                    <p>+123 456 7890</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><span class="social-icon">📘</span></a>
+                        <a href="#" aria-label="Twitter"><span class="social-icon">📱</span></a>
+                        <a href="#" aria-label="Instagram"><span class="social-icon">📷</span></a>
+                        <a href="#" aria-label="YouTube"><span class="social-icon">📹</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 GeoEdu. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
