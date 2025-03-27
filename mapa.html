@@ -3,12 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mapa interactivo de GeoEdu - Explora diferentes regiones geográficas">
-    <meta name="keywords" content="mapa interactivo, geografía, regiones, ecosistemas">
-    <title>Mapa Interactivo - GeoEdu</title>
-    <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Mapa Interactivo de Imaginaria</title>
+    <link rel="stylesheet" href="Style.css">
     <link rel="shortcut icon" href="./imagenes/tierra.png" type="image/x-icon">
+    <style>
+        main {
+            max-width: 1200px;
+            margin: 80px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+
+        }
+        
+        .mapa, .info {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        svg {
+            width: 100%;
+            height: auto;
+        }
+        
+        .region {
+            fill: #e0e0e0;
+            stroke: #fff;
+            stroke-width: 2;
+            transition: fill 0.3s;
+        }
+        
+        a:hover .region {
+            fill: #a0d2eb;
+        }
+        
+        .region-info {
+            display: none;
+        }
+        
+        .region-info:target {
+            display: block;
+        }
+        
+        .region-info:target ~ #inicio {
+            display: none;
+        }
+        
+        .region:target {
+            fill: #64b5f6;
+        }
+        
+        .stat {
+            background: #f0f7ff;
+            border-radius: 4px;
+            padding: 8px 12px;
+            color: #0066cc;
+            display: inline-block;
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -37,6 +94,124 @@
             </nav>
         </div>
     </header>
+    <h1 style="text-align: center; margin: 10px;">Mapa Interactivo de Venezuela</h1>
+    <main>
+        <!-- Paneles de información -->
+        <div class="info">
+            <div id="andina" class="region-info">
+                <h2>Región Andina</h2>
+                <p>Zona montañosa con clima fresco, conocida por su producción agrícola y paisajes espectaculares.</p>
+                <div class="stat">Estados: Mérida, Táchira, Trujillo</div>
+                <div class="stat">Ciudad principal: Mérida</div>
+                <div class="stat">Atractivo: Pico Bolívar</div>
+                <p><a href="#">Volver</a></p>
+            </div>
+            
+            <div id="capital" class="region-info">
+                <h2>Región Capital</h2>
+                <p>Centro político y económico del país, con la mayor densidad poblacional.</p>
+                <div class="stat">Estados: Miranda, Vargas, Distrito Capital</div>
+                <div class="stat">Ciudad principal: Caracas</div>
+                <div class="stat">Atractivo: Ávila</div>
+                <p><a href="#">Volver</a></p>
+            </div>
+            
+            <div id="central" class="region-info">
+                <h2>Región Central</h2>
+                <p>Zona industrial y agrícola importante, con ciudades clave para la economía nacional.</p>
+                <div class="stat">Estados: Aragua, Carabobo, Cojedes</div>
+                <div class="stat">Ciudad principal: Valencia</div>
+                <div class="stat">Atractivo: Parque Henri Pittier</div>
+                <p><a href="#">Volver</a></p>
+            </div>
+            
+            <div id="llanos" class="region-info">
+                <h2>Región de Los Llanos</h2>
+                <p>Extensas planicies con ganadería extensiva y biodiversidad única.</p>
+                <div class="stat">Estados: Apure, Barinas, Portuguesa</div>
+                <div class="stat">Ciudad principal: Barinas</div>
+                <div class="stat">Atractivo: Hato El Frío</div>
+                <p><a href="#">Volver</a></p>
+            </div>
+            
+            <div id="nororiental" class="region-info">
+                <h2>Región Nororiental</h2>
+                <p>Zona costera con playas e importante actividad petrolera.</p>
+                <div class="stat">Estados: Anzoátegui, Monagas, Sucre</div>
+                <div class="stat">Ciudad principal: Barcelona</div>
+                <div class="stat">Atractivo: Parque Mochima</div>
+                <p><a href="#">Volver</a></p>
+            </div>
+            
+            <div id="zuliana" class="region-info">
+                <h2>Región Zuliana</h2>
+                <p>Centro de la industria petrolera con cultura autóctona muy marcada.</p>
+                <div class="stat">Estado: Zulia</div>
+                <div class="stat">Ciudad principal: Maracaibo</div>
+                <div class="stat">Atractivo: Lago de Maracaibo</div>
+                <p><a href="#">Volver</a></p>
+            </div>
+            
+            <div id="guayana" class="region-info">
+                <h2>Región Guayana</h2>
+                <p>La región más extensa con recursos minerales y el Salto Ángel.</p>
+                <div class="stat">Estados: Bolívar, Amazonas, Delta Amacuro</div>
+                <div class="stat">Ciudad principal: Ciudad Guayana</div>
+                <div class="stat">Atractivo: Salto Ángel</div>
+                <p><a href="#">Volver</a></p>
+            </div>
+            
+            <div id="inicio" class="region-info">
+                <h2>Regiones de Venezuela</h2>
+                <p>Haz clic en cualquier región del mapa para conocer sus características.</p>
+                <div class="stat">8 Regiones naturales</div>
+                <div class="stat">Diversidad geográfica</div>
+                <div class="stat">Riqueza cultural</div>
+            </div>
+        </div>
+        
+        <!-- Mapa -->
+        <div class="mapa">
+            <svg viewBox="0 0 800 600">
+                <!-- Región Andina -->
+                <a href="#andina">
+                    <path class="region" d="M300,100 L350,150 L400,180 L450,200 L400,250 L350,220 L300,180 Z"/>
+                    <text x="375" y="180" text-anchor="middle">Andina</text>
+                </a>
+                <!-- Región Capital -->
+                <a href="#capital">
+                    <path class="region" d="M450,200 L500,180 L550,200 L500,250 L450,230 Z"/>
+                    <text x="500" y="220" text-anchor="middle">Capital</text>
+                </a>
+                <!-- Región Central -->
+                <a href="#central">
+                    <path class="region" d="M450,230 L500,250 L550,270 L600,300 L550,350 L500,320 L450,300 Z"/>
+                    <text x="525" y="300" text-anchor="middle">Central</text>
+                </a>
+                <!-- Región Los Llanos -->
+                <a href="#llanos">
+                    <path class="region" d="M300,180 L350,220 L400,250 L450,300 L500,320 L400,400 L300,350 Z"/>
+                    <text x="400" y="300" text-anchor="middle">Llanos</text>
+                </a>
+                <!-- Región Nororiental -->
+                <a href="#nororiental">
+                    <path class="region" d="M550,200 L600,180 L650,200 L700,220 L650,300 L600,270 L550,270 Z"/>
+                    <text x="625" y="250" text-anchor="middle">Nororiental</text>
+                </a>
+                <!-- Región Zuliana -->
+                <a href="#zuliana">
+                    <path class="region" d="M200,150 L250,180 L300,180 L300,100 L250,80 Z"/>
+                    <text x="250" y="150" text-anchor="middle">Zuliana</text>
+                </a>
+                <!-- Región Guayana -->
+                <a href="#guayana">
+                    <path class="region" d="M400,400 L500,320 L550,350 L600,400 L650,450 L550,500 L450,450 Z"/>
+                    <text x="525" y="450" text-anchor="middle">Guayana</text>
+                </a>
+            </svg>
+            <p>Haz clic en una región para ver información</p>
+        </div>
+    </main>
     <footer>
         <div class="contenedor">
             <div class="footer-grid">

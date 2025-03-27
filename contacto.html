@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contacta con GeoEdu - Educación geográfica y ambiental">
-    <meta name="keywords" content="contacto, formulario, educación ambiental, geografía">
     <title>Contacto - GeoEdu</title>
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -93,7 +91,7 @@
     /*===Contacto===*/
     .card {
         width: 600px;
-        height: 600px;
+        height: 700px;
         margin: 0 auto;
         background-color:  #4caf4f61;
         border-radius: 8px;
@@ -153,6 +151,27 @@
         background-color: #000000;
         border-color: #326a0a;
     }
+    
+    /* Estilos para validación */
+    input:invalid, textarea:invalid {
+        border-color: #ff0000;
+    }
+    
+    input:invalid:focus, textarea:invalid:focus {
+        border-color: #ff0000;
+    }
+    
+    .error-message {
+        color: #ff0000;
+        font-size: 12px;
+        margin-top: 5px;
+        display: none;
+    }
+    
+    input:invalid ~ .error-message,
+    textarea:invalid ~ .error-message {
+        display: block;
+    }
 </style>
 <body>
     <header>
@@ -189,34 +208,37 @@
                 resolver cualquier duda o pregunta</p>
 
                 <div class="card">
-                    <div class="card__content">
+                    <form class="card__content" novalidate>
                         <div class="group" style="margin-bottom: 25px;">
-                            <input required="" type="text" class="input">
+                            <input required type="text" class="input" name="nombre" pattern="[A-Za-z\s]{3,}" title="Por favor ingrese un nombre válido (mínimo 3 caracteres)">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Nombre</label>
+                            <div class="error-message">Por favor ingrese su nombre (mínimo 3 letras)</div>
                         </div>
                         <div class="group" style="margin-bottom: 25px;">
-                            <input required="" type="email" class="input">
+                            <input required type="email" class="input" name="email" title="Por favor ingrese un correo electrónico válido">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Correo</label>
+                            <div class="error-message">Por favor ingrese un correo electrónico válido</div>
                         </div>
                         <div class="group" style="margin-bottom: 25px;">
-                            <input required="" type="text" class="input">
+                            <input required type="text" class="input" name="asunto" pattern=".{5,}" title="Por favor ingrese un asunto (mínimo 5 caracteres)">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Asunto</label>
+                            <div class="error-message">Por favor ingrese un asunto (mínimo 5 caracteres)</div>
                         </div>
                         <div class="form-group">
                             <label for="textarea">Comentario</label>
-                            <textarea required="" cols="50" rows="10" id="textarea" name="textarea">          </textarea>
+                            <textarea required cols="50" rows="10" id="textarea" name="comentario" pattern=".{10,}" title="Por favor ingrese un comentario (mínimo 10 caracteres)"></textarea>
+                            <div class="error-message">Por favor ingrese un comentario (mínimo 10 caracteres)</div>
                         </div>
                         <button type="submit" class="form-submit-btn">Enviar</button>
-                    </div>
+                    </form>
                 </div>
         </div>
-        
     </main>
 
     <footer>
