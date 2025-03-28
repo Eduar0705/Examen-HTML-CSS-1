@@ -6,66 +6,6 @@
     <title>Mapa Interactivo de Imaginaria</title>
     <link rel="stylesheet" href="Style.css">
     <link rel="shortcut icon" href="./imagenes/tierra.png" type="image/x-icon">
-    <style>
-        main {
-            max-width: 1200px;
-            margin: 80px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-
-        }
-        
-        .mapa, .info {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            padding: 20px;
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        svg {
-            width: 100%;
-            height: auto;
-        }
-        
-        .region {
-            fill: #e0e0e0;
-            stroke: #fff;
-            stroke-width: 2;
-            transition: fill 0.3s;
-        }
-        
-        a:hover .region {
-            fill: #a0d2eb;
-        }
-        
-        .region-info {
-            display: none;
-        }
-        
-        .region-info:target {
-            display: block;
-        }
-        
-        .region-info:target ~ #inicio {
-            display: none;
-        }
-        
-        .region:target {
-            fill: #64b5f6;
-        }
-        
-        .stat {
-            background: #f0f7ff;
-            border-radius: 4px;
-            padding: 8px 12px;
-            color: #0066cc;
-            display: inline-block;
-            margin: 5px;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -76,13 +16,6 @@
                     <span class="logo-texto">GeoEducación</span>
                 </a>
             </div>
-            <!--Barra pegable-->
-            <label class="burger" for="burger">
-                <input type="checkbox" id="burger" class="Navegacion">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
             <!--Navegacion-->
             <nav>
                 <ul>
@@ -95,12 +28,18 @@
         </div>
     </header>
     <h1 style="text-align: center; margin: 10px;">Mapa Interactivo de Venezuela</h1>
-    <main>
+    <main style="margin: 30px;">
         <!-- Paneles de información -->
         <div class="info">
             <div id="andina" class="region-info">
                 <h2>Región Andina</h2>
-                <p>Zona montañosa con clima fresco, conocida por su producción agrícola y paisajes espectaculares.</p>
+                <p>Imagina un paraíso escondido entre montañas, donde el
+                    clima fresco revitaliza el cuerpo y la tierra fértil
+                    da vida a cultivos excepcionales. Cascadas cristalinas,
+                    paisajes de ensueño y atardeceres pintados en el cielo hacen 
+                    de este lugar un refugio perfecto para quienes buscan conectar 
+                    con la naturaleza y la tranquilidad. Un destino mágico que no 
+                    solo se visita</p>
                 <div class="stat">Estados: Mérida, Táchira, Trujillo</div>
                 <div class="stat">Ciudad principal: Mérida</div>
                 <div class="stat">Atractivo: Pico Bolívar</div>
@@ -109,7 +48,14 @@
             
             <div id="capital" class="region-info">
                 <h2>Región Capital</h2>
-                <p>Centro político y económico del país, con la mayor densidad poblacional.</p>
+                <p>La Región Capital es el corazón político y económico de Venezuela, 
+                    donde las decisiones que mueven al país toman forma. Con la mayor 
+                    densidad poblacional, esta zona vibrante se caracteriza por su 
+                    dinamismo urbano y su influencia en todos los aspectos de la vida 
+                    nacional. Aquí, la historia y la modernidad se entrelazan, creando 
+                    un entorno único que simboliza el poder y la vitalidad de la nación. 
+                    Su agitada vida cotidiana, marcada por el comercio, la cultura y la 
+                    política, hacen de esta región el epicentro del desarrollo venezolano.</p>
                 <div class="stat">Estados: Miranda, Vargas, Distrito Capital</div>
                 <div class="stat">Ciudad principal: Caracas</div>
                 <div class="stat">Atractivo: Ávila</div>
@@ -118,7 +64,14 @@
             
             <div id="central" class="region-info">
                 <h2>Región Central</h2>
-                <p>Zona industrial y agrícola importante, con ciudades clave para la economía nacional.</p>
+                <p>La Región Central de Venezuela late al ritmo de sus pujantes ciudades, 
+                    esenciales para la economía nacional. Aquí, la modernidad industrial 
+                    se fusiona con la productividad agrícola, dando lugar a un panorama 
+                    de constante desarrollo. Estas tierras, estratégicamente ubicadas, 
+                    no solo sustentan la industria y el comercio, sino que también ofrecen 
+                    un entorno vibrante lleno de oportunidades. Es un epicentro de actividad 
+                    donde las dinámicas urbanas y rurales convergen, forjando un equilibrio 
+                    único entre progreso y tradición.</p>
                 <div class="stat">Estados: Aragua, Carabobo, Cojedes</div>
                 <div class="stat">Ciudad principal: Valencia</div>
                 <div class="stat">Atractivo: Parque Henri Pittier</div>
@@ -127,7 +80,15 @@
             
             <div id="llanos" class="region-info">
                 <h2>Región de Los Llanos</h2>
-                <p>Extensas planicies con ganadería extensiva y biodiversidad única.</p>
+                <p>La Región de Los Llanos se extiende como un inmenso océano de verdes praderas, 
+                    donde la ganadería extensiva domina el paisaje y define su identidad 
+                    económica y cultural. Estas vastas planicies, hogar de una biodiversidad
+                    sorprendente, albergan desde majestuosos jaguares hasta bandadas de 
+                    aves coloridas que pintan el cielo en movimiento. Con sus atardeceres 
+                    dorados que parecen eternos, este territorio invita a descubrir la 
+                    esencia de la vida rural venezolana, donde la conexión entre la 
+                    naturaleza y las tradiciones llaneras crea un entorno tan auténtico 
+                    como fascinante.</p>
                 <div class="stat">Estados: Apure, Barinas, Portuguesa</div>
                 <div class="stat">Ciudad principal: Barinas</div>
                 <div class="stat">Atractivo: Hato El Frío</div>
@@ -136,7 +97,15 @@
             
             <div id="nororiental" class="region-info">
                 <h2>Región Nororiental</h2>
-                <p>Zona costera con playas e importante actividad petrolera.</p>
+                <p>La Región Nororiental es un vibrante rincón de Venezuela donde 
+                    la costa despliega todo su esplendor. Sus playas bañadas por aguas 
+                    cristalinas atraen a visitantes que buscan relajarse bajo el sol 
+                    tropical, mientras que su dinamismo industrial se hace sentir a 
+                    través de la importante actividad petrolera que impulsa la economía 
+                    local. Este contraste entre la serenidad de sus paisajes costeros y 
+                    la energía de sus zonas productivas la convierten en un lugar único, 
+                    lleno de oportunidades y belleza natural. Un destino donde el mar y 
+                    la riqueza energética se encuentran en perfecta armonía.</p>
                 <div class="stat">Estados: Anzoátegui, Monagas, Sucre</div>
                 <div class="stat">Ciudad principal: Barcelona</div>
                 <div class="stat">Atractivo: Parque Mochima</div>
@@ -145,7 +114,16 @@
             
             <div id="zuliana" class="region-info">
                 <h2>Región Zuliana</h2>
-                <p>Centro de la industria petrolera con cultura autóctona muy marcada.</p>
+                <p>En el corazón de la Región Zuliana, el rugir de las torres 
+                    petroleras se entremezcla con los vibrantes ritmos de una 
+                    cultura autóctona que late con fuerza. Este epicentro de la 
+                    industria petrolera no solo impulsa la economía del país, sino 
+                    que también resguarda tradiciones únicas, sabores inolvidables 
+                    y una calidez humana que conquista a todos los que lo visitan. 
+                    Desde sus paisajes bañados por el majestuoso Lago de Maracaibo 
+                    hasta las coloridas expresiones culturales que inundan sus 
+                    festividades, esta región es un crisol de modernidad y herencia 
+                    que no deja indiferente a nadie.</p>
                 <div class="stat">Estado: Zulia</div>
                 <div class="stat">Ciudad principal: Maracaibo</div>
                 <div class="stat">Atractivo: Lago de Maracaibo</div>
@@ -154,7 +132,15 @@
             
             <div id="guayana" class="region-info">
                 <h2>Región Guayana</h2>
-                <p>La región más extensa con recursos minerales y el Salto Ángel.</p>
+                <p>En la imponente Región Guayana, naturaleza y riqueza se 
+                    entrelazan en un espectáculo grandioso. Con vastos recursos 
+                    minerales que sustentan la industria nacional, esta región se erige 
+                    como el pulmón económico y verde de Venezuela. Hogar del majestuoso 
+                    Salto Ángel, la cascada más alta del mundo, sus paisajes deslumbran con 
+                    una belleza que no conoce límites. Aquí, la inmensidad de la selva y 
+                    la fuerza de los ríos crean un escenario único, invitando a aventureros 
+                    y soñadores a explorar su grandeza. Un tesoro que combina poder natural 
+                    y potencial humano.</p>
                 <div class="stat">Estados: Bolívar, Amazonas, Delta Amacuro</div>
                 <div class="stat">Ciudad principal: Ciudad Guayana</div>
                 <div class="stat">Atractivo: Salto Ángel</div>
